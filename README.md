@@ -1,5 +1,7 @@
 # BlingBill
 
+![BlingBill](https://github.com/user-attachments/assets/9e5dde91-04ca-43d4-aa04-4fe6dd1a4dc8)
+BlingBill is a sleek jewelry inventory and billing app that helps jewelers manage products, track sales, and generate invoices effortlessly.
 
 ## 📌 Table of Contents
 - [✨ Features](#-features)
