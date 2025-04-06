@@ -145,9 +145,13 @@ class BillingView extends GetView<BillingController> {
                                 ),
                               ),
                               const SizedBox(height: 20),
+
                               DropdownButtonFormField<String>(
                                 value: controller.selectedPaymentMethod.value,
-                                style: GoogleFonts.inter(),
+                                dropdownColor: isDarkMode ? AppConstants.darkCardColor : Colors.white,
+                                iconEnabledColor: isDarkMode ? Colors.white70 : Colors.black87,
+
+                                style: GoogleFonts.inter(color: isDarkMode ? Colors.white : Colors.black),
                                 decoration: InputDecoration(
                                   labelText: 'Payment Method',
                                   labelStyle: GoogleFonts.inter(),
@@ -190,8 +194,11 @@ class BillingView extends GetView<BillingController> {
                               // Product Dropdown
                               DropdownButtonFormField<Product>(
                                 value: controller.selectedProduct.value,
+                                dropdownColor: isDarkMode ? cardColor : Colors.white,
+                                iconEnabledColor: isDarkMode ? Colors.white70 : Colors.black87,
+
+                                style: GoogleFonts.inter(color: isDarkMode ? Colors.white : Colors.black),
                                 isExpanded: true,
-                                style: GoogleFonts.inter(),
                                 decoration: InputDecoration(
                                   labelText: 'Select Product',
                                   labelStyle: GoogleFonts.inter(),
@@ -202,7 +209,6 @@ class BillingView extends GetView<BillingController> {
                                   filled: true,
                                   fillColor: surfaceColor,
                                 ),
-                                dropdownColor: cardColor,
                                 items:
                                     controller.availableProducts
                                         .map(
