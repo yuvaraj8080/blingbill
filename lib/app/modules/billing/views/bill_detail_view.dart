@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:pdf/pdf.dart'; // Add this import for PdfPageFormat
 
 import '../../../constants/app_constants.dart';
 import '../../../data/models/bill_model.dart';
@@ -146,7 +147,7 @@ class BillDetailView extends GetView<BillingController> {
             // Summary Card
             Card(
               elevation: 2,
-
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -193,57 +194,48 @@ class BillDetailView extends GetView<BillingController> {
 
             const SizedBox(height: 24),
 
-            // Action Buttons
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.picture_as_pdf),
-                    label: const Text('Generate Invoice'),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                    ),
-                    onPressed: () => controller.generateInvoice(bill),
-                  ),
-                ),
-              ],
+            // Invoice Generation Section
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: buildInvoiceGenerationSection(bill),
+              ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.delete),
-                    label: const Text('Delete Bill'),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                      backgroundColor: Colors.red, // Make it red for delete action
-                      foregroundColor: Colors.white,
-                    ),
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder:
-                            (context) => AlertDialog(
-                              title: const Text('Delete Bill'),
-                              content: Text('Are you sure you want to delete "${bill.id}"?'),
-                              actions: [
-                                TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    controller.deleteBill(bill.id!);
-                                  },
-                                  child: const Text('Delete', style: TextStyle(color: AppConstants.errorColor)),
-                                ),
-                              ],
-                            ),
-                      );
-                    },
+
+            const SizedBox(height: 16),
+
+            // Delete Button
+            ElevatedButton.icon(
+              icon: const Icon(Icons.delete),
+              label: const Text('Delete Bill'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                minimumSize: const Size(double.infinity, 48),
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Delete Bill'),
+                    content: Text('Are you sure you want to delete "${bill.id}"?'),
+                    actions: [
+                      TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          controller.deleteBill(bill.id!);
+                        },
+                        child: const Text('Delete', style: TextStyle(color: AppConstants.errorColor)),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                );
+              },
             ),
           ],
         ),
@@ -300,6 +292,74 @@ class BillDetailView extends GetView<BillingController> {
           ),
         ),
       ],
+    );
+  }
+
+  // Added methods for invoice generation
+  Widget buildInvoiceGenerationSection(Bill bill) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            'Invoice Format',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 60,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              _buildFormatOption(
+                'A4 Portrait',
+                Icons.portrait,
+                () => controller.generateInvoice(bill, pageFormat: PdfPageFormat.a4),
+              ),
+              _buildFormatOption(
+                'A4 Landscape',
+                Icons.landscape,
+                () => controller.generateInvoice(bill, pageFormat: PdfPageFormat.a4.landscape),
+              ),
+              _buildFormatOption(
+                'Letter',
+                Icons.description,
+                () => controller.generateInvoice(bill, pageFormat: PdfPageFormat.letter),
+              ),
+              _buildFormatOption(
+                'Compact',
+                Icons.receipt,
+                () => controller.generateInvoice(bill, pageFormat: PdfPageFormat.standard),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFormatOption(String label, IconData icon, VoidCallback onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey.shade300),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+            children: [
+              Icon(icon, size: 24),
+              const SizedBox(width: 8),
+              Text(label),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

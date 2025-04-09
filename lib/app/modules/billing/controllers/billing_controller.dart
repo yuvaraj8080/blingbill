@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
@@ -475,14 +476,24 @@ class BillingController extends GetxController {
   }
 
   // Generate invoice PDF
-  Future<void> generateInvoice(Bill bill) async {
+  Future<void> generateInvoice(Bill bill, {PdfPageFormat pageFormat = PdfPageFormat.a4}) async {
     try {
-      final pdf = pw.Document(author: 'Ankit', title: 'BlingBill Invoice');
-      final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '\u{20B9}');
+      // Load fonts that support the rupee symbol
+      final fontData = await rootBundle.load("assets/fonts/Roboto.ttf");
+      final ttf = pw.Font.ttf(fontData.buffer.asByteData());
+
+      final pdf = pw.Document(
+        author: 'Ankit',
+        title: 'BlingBill Invoice',
+        theme: pw.ThemeData.withFont(base: ttf, bold: ttf),
+      );
+
+      // Using the rupee symbol with proper font support
+      final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '₹');
 
       pdf.addPage(
         pw.MultiPage(
-          pageFormat: PdfPageFormat.a4,
+          pageFormat: pageFormat,
           margin: const pw.EdgeInsets.all(32),
           header: (context) => _buildInvoiceHeader(bill),
           build:
@@ -608,6 +619,7 @@ class BillingController extends GetxController {
 
   // PDF Helper methods
   pw.Widget _buildInvoiceHeader(Bill bill) {
+    
     return pw.Row(
       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
       children: [
