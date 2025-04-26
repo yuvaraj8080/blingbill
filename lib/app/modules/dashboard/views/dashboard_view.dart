@@ -32,7 +32,7 @@ class DashboardView extends GetView<DashboardController> {
         actions: [
           IconButton(
             icon: Obx(
-              () => Icon(Get.find<ThemeController>().themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode),
+                  () => Icon(Get.find<ThemeController>().themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode),
             ),
             onPressed: () {
               Get.find<ThemeController>().toggleTheme();

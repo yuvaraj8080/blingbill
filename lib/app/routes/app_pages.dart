@@ -24,7 +24,7 @@ abstract class Routes {
 
 class AppPages {
   static final pages = [
-    GetPage(name: Routes.INITIAL, page: () => const SplashView(), binding: DashboardBinding()),
+    GetPage(name: Routes.INITIAL, page: () => const SplashView(), binding: DashboardBinding(),),
     GetPage(name: Routes.DASHBOARD, page: () => const DashboardView(), binding: DashboardBinding()),
     GetPage(name: Routes.PRODUCTS, page: () => const ProductListView(), binding: ProductBinding()),
     GetPage(name: Routes.PRODUCT_FORM, page: () => const ProductFormView(), binding: ProductBinding()),

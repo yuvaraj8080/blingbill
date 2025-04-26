@@ -16,7 +16,7 @@ class ProductController extends GetxController {
   final taxController = TextEditingController();
 
   // Selected category
-  final selectedCategory = AppConstants.jewelryCategories.first.obs;
+  final selectedCategory = AppConstants.productCategory.first.obs;
 
   // Selected product image
   final imagePath = Rxn<String>();
@@ -56,7 +56,7 @@ class ProductController extends GetxController {
     discountController.dispose();
     taxController.dispose();
     imagePath.value = null;
-    selectedCategory.value = AppConstants.jewelryCategories.first;
+    selectedCategory.value = AppConstants.productCategory.first;
     isEditing.value = false;
     editingProductId.value = null;
     searchQuery.value = '';
@@ -179,7 +179,7 @@ class ProductController extends GetxController {
     priceController.clear();
     discountController.clear();
     taxController.clear();
-    selectedCategory.value = AppConstants.jewelryCategories.first;
+    selectedCategory.value = AppConstants.productCategory.first;
     imagePath.value = null;
     isEditing.value = false;
     editingProductId.value = null;

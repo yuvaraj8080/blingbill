@@ -10,7 +10,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
       // Navigate to home or login screen
-      Get.offAll(BlingBillApp()); // change as needed
+      Get.offAll(NavigationMenu()); // change as needed
     });
 
     return Scaffold(
@@ -25,7 +25,7 @@ class SplashView extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'BlingBill',
+              'Smart Bill',
               style: AppConstants.subheadingStyle.copyWith(fontSize: 32, color: AppConstants.lightSurfaceColor),
             ),
           ],

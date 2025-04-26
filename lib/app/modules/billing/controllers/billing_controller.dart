@@ -294,8 +294,7 @@ class BillingController extends GetxController {
 
       // Create bill
       final bill = Bill(
-        customerName:
-            customerNameController.text.trim().isNotEmpty ? customerNameController.text.trim() : 'Walk-in Customer',
+        customerName: customerNameController.text.trim().isNotEmpty ? customerNameController.text.trim() : 'Walk-in Customer',
         date: DateTime.now(),
         subTotal: subTotal.value,
         discount: globalDiscount.value,
@@ -483,8 +482,8 @@ class BillingController extends GetxController {
       final ttf = pw.Font.ttf(fontData.buffer.asByteData());
 
       final pdf = pw.Document(
-        author: 'Ankit',
-        title: 'BlingBill Invoice',
+        author: 'Yuvaraj',
+        title: 'Smart Bill Invoice',
         theme: pw.ThemeData.withFont(base: ttf, bold: ttf),
       );
 
@@ -671,4 +670,5 @@ class BillingController extends GetxController {
       ),
     );
   }
+
 }

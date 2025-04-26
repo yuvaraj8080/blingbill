@@ -117,7 +117,7 @@ class BillingView extends GetView<BillingController> {
                   // Main content
                   Expanded(
                     child: ListView(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       children: [
                         // Customer Information Card
                         _buildSectionCard(
@@ -438,7 +438,7 @@ class BillingView extends GetView<BillingController> {
                   child: Icon(icon, color: iconColor, size: 24),
                 ),
                 const SizedBox(width: 14),
-                Text(title, style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold)),
+                Text(title, style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold)),
                 const Spacer(),
                 if (actions != null) ...actions,
               ],

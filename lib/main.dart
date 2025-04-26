@@ -18,12 +18,13 @@ void main() async {
   ]).catchError((e) {
     debugPrint('Error setting orientation: $e');
   });
+
   Get.put(ThemeController(), permanent: true);
-  runApp(const BlingBillMainApp());
+  runApp(const SmartBillMainApp());
 }
 
-class BlingBillMainApp extends StatelessWidget {
-  const BlingBillMainApp({super.key});
+class SmartBillMainApp extends StatelessWidget {
+  const SmartBillMainApp({super.key});
 
   @override
   Widget build(BuildContext context) {

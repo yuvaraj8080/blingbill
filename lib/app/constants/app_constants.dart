@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppConstants {
   // App Info
-  static const String appName = 'BlingBill';
+  static const String appName = 'Smart Bill';
 
   // Theme Colors
   static const Color primaryColor = Color(0xFFB08A48);
@@ -62,7 +62,7 @@ class AppConstants {
   static const double defaultElevation = 2.0;
 
   // Jewelry Categories
-  static const List<String> jewelryCategories = [
+  static const List<String> productCategory = [
     'Necklace',
     'Earrings',
     'Bracelet',

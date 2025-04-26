@@ -6,14 +6,14 @@ import 'package:blingbill/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BlingBillApp extends StatefulWidget {
-  const BlingBillApp({super.key});
+class NavigationMenu extends StatefulWidget {
+  const NavigationMenu({super.key});
 
   @override
-  State<BlingBillApp> createState() => _BlingBillAppState();
+  State<NavigationMenu> createState() => _NavigationMenuState();
 }
 
-class _BlingBillAppState extends State<BlingBillApp> {
+class _NavigationMenuState extends State<NavigationMenu> {
   int _currentIndex = 0;
   String? categoryFilter;
   DateTime? startDate;

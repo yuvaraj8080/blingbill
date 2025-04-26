@@ -48,7 +48,7 @@ class ProductListView extends GetView<ProductController> {
                 ),
               ),
               const SizedBox(width: 8),
-              ...AppConstants.jewelryCategories.map(
+              ...AppConstants.productCategory.map(
                 (category) => Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: Obx(

@@ -192,7 +192,7 @@ class ProductFormView extends GetView<ProductController> {
             dropdownColor: isDarkMode ? AppConstants.darkCardColor : Colors.white,
             iconEnabledColor: isDarkMode ? Colors.white70 : Colors.black87,
             items:
-                AppConstants.jewelryCategories.map((category) {
+                AppConstants.productCategory.map((category) {
                   return DropdownMenuItem<String>(
                     value: category,
                     child: Text(category, style: GoogleFonts.inter(color: isDarkMode ? Colors.white : Colors.black)),

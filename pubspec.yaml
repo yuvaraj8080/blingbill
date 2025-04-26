@@ -32,6 +32,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+
+
   flutter_launcher_icons: ^0.14.3
   get: ^4.6.6
   google_fonts: ^6.2.1
@@ -43,6 +45,8 @@ dependencies:
   printing: ^5.14.2
   shared_preferences: ^2.5.3
   sqflite: ^2.3.2
+
+
 dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
