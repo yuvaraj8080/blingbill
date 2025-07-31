@@ -92,11 +92,20 @@ class AppConstants {
   static const String billCreated = 'Bill created successfully';
 
   // Text Styles
-  static TextStyle get headingStyle => GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: textDark);
+  static TextStyle get headingStyle => GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: textDark,
+  );
 
-  static TextStyle get subheadingStyle => GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: textDark);
+  static TextStyle get subheadingStyle => GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: textDark,
+  );
 
-  static TextStyle get bodyStyle => GoogleFonts.inter(fontSize: 14, color: textDark);
+  static TextStyle get bodyStyle =>
+      GoogleFonts.inter(fontSize: 14, color: textDark);
 
   // Light Theme
   static ThemeData getLightTheme() {
@@ -117,25 +126,39 @@ class AppConstants {
         foregroundColor: textDark,
         elevation: appBarElevation,
         centerTitle: true,
-        titleTextStyle: GoogleFonts.inter(color: textDark, fontSize: 20, fontWeight: FontWeight.w600),
+        titleTextStyle: GoogleFonts.inter(
+          color: textDark,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
         iconTheme: const IconThemeData(color: textDark),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: textLight,
           backgroundColor: primaryColor,
-          padding: const EdgeInsets.symmetric(horizontal: spacing_l, vertical: spacing_m),
+          padding: const EdgeInsets.symmetric(
+            horizontal: spacing_l,
+            vertical: spacing_m,
+          ),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w500),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+          ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryColor,
           side: const BorderSide(color: primaryColor),
-          padding: const EdgeInsets.symmetric(horizontal: spacing_l, vertical: spacing_m),
+          padding: const EdgeInsets.symmetric(
+            horizontal: spacing_l,
+            vertical: spacing_m,
+          ),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w500),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+          ),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -147,8 +170,14 @@ class AppConstants {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: lightSurfaceColor,
-        contentPadding: const EdgeInsets.symmetric(horizontal: spacing_m, vertical: spacing_m),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(defaultRadius), borderSide: BorderSide.none),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: spacing_m,
+          vertical: spacing_m,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+          borderSide: BorderSide.none,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
           borderSide: BorderSide(color: Colors.grey.shade300),
@@ -168,12 +197,18 @@ class AppConstants {
         labelStyle: GoogleFonts.inter(color: textMedium),
         hintStyle: GoogleFonts.inter(color: Colors.grey.shade500),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: lightCardColor,
         elevation: cardElevation,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
       ),
-      dividerTheme: DividerThemeData(color: Colors.grey.shade200, thickness: 1, space: spacing_l),
+      dividerTheme: DividerThemeData(
+        color: Colors.grey.shade200,
+        thickness: 1,
+        space: spacing_l,
+      ),
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.disabled)) {
@@ -189,16 +224,26 @@ class AppConstants {
         secondarySelectedColor: primaryColor.withOpacity(0.5),
         disabledColor: Colors.grey.shade400,
         selectedShadowColor: Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
         labelStyle: GoogleFonts.inter(color: textDark),
-        secondaryLabelStyle: GoogleFonts.inter(color: textDark.withOpacity(0.7)),
+        secondaryLabelStyle: GoogleFonts.inter(
+          color: textDark.withOpacity(0.7),
+        ),
       ),
       dropdownMenuTheme: DropdownMenuThemeData(
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: lightSurfaceColor,
-          contentPadding: const EdgeInsets.symmetric(horizontal: spacing_m, vertical: spacing_m),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(defaultRadius), borderSide: BorderSide.none),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: spacing_m,
+            vertical: spacing_m,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+            borderSide: BorderSide.none,
+          ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultRadius),
             borderSide: BorderSide(color: Colors.grey.shade300),
@@ -232,25 +277,39 @@ class AppConstants {
         foregroundColor: textLight,
         elevation: appBarElevation,
         centerTitle: true,
-        titleTextStyle: GoogleFonts.inter(color: textLight, fontSize: 20, fontWeight: FontWeight.w600),
+        titleTextStyle: GoogleFonts.inter(
+          color: textLight,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
         iconTheme: const IconThemeData(color: textLight),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           foregroundColor: textLight,
           backgroundColor: primaryColor,
-          padding: const EdgeInsets.symmetric(horizontal: spacing_l, vertical: spacing_m),
+          padding: const EdgeInsets.symmetric(
+            horizontal: spacing_l,
+            vertical: spacing_m,
+          ),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w500),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+          ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryColor,
           side: const BorderSide(color: primaryColor),
-          padding: const EdgeInsets.symmetric(horizontal: spacing_l, vertical: spacing_m),
+          padding: const EdgeInsets.symmetric(
+            horizontal: spacing_l,
+            vertical: spacing_m,
+          ),
           textStyle: GoogleFonts.inter(fontWeight: FontWeight.w500),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+          ),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -262,8 +321,14 @@ class AppConstants {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: darkSurfaceColor,
-        contentPadding: const EdgeInsets.symmetric(horizontal: spacing_m, vertical: spacing_m),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(defaultRadius), borderSide: BorderSide.none),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: spacing_m,
+          vertical: spacing_m,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+          borderSide: BorderSide.none,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
           borderSide: BorderSide(color: Colors.grey.shade700),
@@ -283,12 +348,18 @@ class AppConstants {
         labelStyle: GoogleFonts.inter(color: Colors.grey.shade300),
         hintStyle: GoogleFonts.inter(color: Colors.grey.shade500),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: darkCardColor,
         elevation: cardElevation,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
       ),
-      dividerTheme: DividerThemeData(color: Colors.grey.shade800, thickness: 1, space: spacing_l),
+      dividerTheme: DividerThemeData(
+        color: Colors.grey.shade800,
+        thickness: 1,
+        space: spacing_l,
+      ),
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.disabled)) {
@@ -304,16 +375,26 @@ class AppConstants {
         secondarySelectedColor: primaryColor.withOpacity(0.5),
         disabledColor: Colors.grey.shade700,
         selectedShadowColor: Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultRadius)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
         labelStyle: GoogleFonts.inter(color: textLight),
-        secondaryLabelStyle: GoogleFonts.inter(color: textLight.withOpacity(0.7)),
+        secondaryLabelStyle: GoogleFonts.inter(
+          color: textLight.withOpacity(0.7),
+        ),
       ),
       dropdownMenuTheme: DropdownMenuThemeData(
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: darkSurfaceColor,
-          contentPadding: const EdgeInsets.symmetric(horizontal: spacing_m, vertical: spacing_m),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(defaultRadius), borderSide: BorderSide.none),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: spacing_m,
+            vertical: spacing_m,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+            borderSide: BorderSide.none,
+          ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultRadius),
             borderSide: BorderSide(color: Colors.grey.shade700),
